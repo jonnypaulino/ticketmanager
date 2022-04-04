@@ -58,7 +58,24 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
+  assets:
+    - assets/images/Chelsea-Logo.png
+    - assets/images/liverpool-logo.png
+    - assets/images/manchestercity-logo.png
+    - assets/images/theme.png
+    - assets/images/Atletico-Madrid-Logo.png
+    - assets/images/atlm.png
+    - assets/images/logo-benfica.png
+    - assets/images/villarreal-logo.png
+    - assets/images/bayern-munich-logo.png
+    - assets/images/Real-Madrid-Logo.png
+    - assets/images/Rm.png
+    - assets/images/Real.png
+    - assets/images/che.png
+    - assets/images/cheque.png
+    - assets/images/bola.jpg
+    - assets/images/bola2.jpg
+    - assets/images/bg.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
