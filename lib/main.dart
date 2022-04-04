@@ -2,27 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:ticketmanager/pages/TicketsPage.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      supportedLocales: [const Locale('pt', 'BR')],
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      initialRoute: '/',
-      routes: <String, WidgetBuilder>{
-        '/': (context) => TicketsPage(),
-      },
+      home: Scaffold(body: SafeArea(child: TicketsPage())),
     );
   }
 }
