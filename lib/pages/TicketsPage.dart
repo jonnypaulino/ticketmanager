@@ -55,14 +55,14 @@ class _TicketsPageState extends State<TicketsPage> {
   }
 }
 
-InkWell builderTicket(
+GestureDetector builderTicket(
     {required String mandante,
     required String mnome,
     required String visitante,
     required String vnome,
     required String data,
     required String hora}) {
-  return InkWell(
+  return GestureDetector(
     onTap: () {
       print("clicou");
     },
