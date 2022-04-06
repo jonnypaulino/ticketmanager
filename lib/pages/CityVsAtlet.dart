@@ -133,7 +133,10 @@ class _HomePageState extends State<CityVsAtlet> {
                     Container(
                         width: 100,
                         height: 30,
+                        decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
                         color: Color.fromRGBO(137, 139, 136, 0.85),
+                        ),
                         child:
                         TextField(
                           keyboardType: TextInputType.number,
@@ -168,7 +171,10 @@ class _HomePageState extends State<CityVsAtlet> {
                       alignment: Alignment.center,
                       width: 100,
                       height: 30,
-                      color: Color.fromRGBO(137, 139, 136, 0.85),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Color.fromRGBO(137, 139, 136, 0.85),
+                      ),
                       child:
                       Text(
                           'X Reais'
@@ -187,11 +193,15 @@ class _HomePageState extends State<CityVsAtlet> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    FlatButton(
-                      minWidth: 220.0,
-                      height: 50.0,
-                      color: Color.fromRGBO(14, 30, 91, 1),
-                      textColor: Colors.white,
+                    ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(Color.fromRGBO(14, 30, 91, 1)),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                              )
+                          )
+                      ),
                       child: Text(
                         'Comprar',
                         style: TextStyle(
