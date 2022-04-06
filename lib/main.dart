@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ticketmanager/pages/match_detail_page.dart';
 import 'package:ticketmanager/pages/tickets_page.dart';
 import 'package:ticketmanager/pages/home.dart';
+import 'package:ticketmanager/pages/ticketGames.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,12 +16,11 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         //home: Scaffold(body: SafeArea(child: TicketsPage())),
         title: 'Champions',
-        initialRoute: '/Home',
+        initialRoute: '/',
         routes: <String, WidgetBuilder>{
           '/': (context) => Home(),
           '/games': (context) => TicketsPage(),
-          '/matche_detail_page': (context) => MatchDetails(),
-          // '/CitVsAtl': (context) => CityVsAtlet(),
+          '/ticketGames': (context) => TicketGames(),
         });
   }
 }

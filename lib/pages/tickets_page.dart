@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'match_detail_page.dart';
+import 'ticketGames.dart';
 
 class TicketsPage extends StatefulWidget {
   const TicketsPage({Key? key}) : super(key: key);
@@ -28,6 +27,7 @@ class _TicketsPageState extends State<TicketsPage> {
                 mnome: 'MANCHESTER CITY',
                 visitante: 'assets/images/atlm.png',
                 vnome: 'ATLÉTICO MADRID',
+                stadium: 'Etihad Stadium',
                 data: 'TER, 05/04',
                 hora: '16:00'),
             builderTicket(
@@ -36,6 +36,7 @@ class _TicketsPageState extends State<TicketsPage> {
                 mnome: 'BENFICA',
                 visitante: 'assets/images/liverpool-logo.png',
                 vnome: 'LIVERPOOL',
+                stadium: 'Estádio da Luz',
                 data: 'TER, 05/04',
                 hora: '16:00'),
             builderTicket(
@@ -44,6 +45,7 @@ class _TicketsPageState extends State<TicketsPage> {
                 mnome: 'VILLARREAL',
                 visitante: 'assets/images/bayern-munich-logo.png',
                 vnome: 'BAYERN',
+                stadium: 'El Madrigal',
                 data: ' QUA, 06/04',
                 hora: '16:00'),
             builderTicket(
@@ -52,6 +54,7 @@ class _TicketsPageState extends State<TicketsPage> {
                 mnome: 'CHELSEA',
                 visitante: 'assets/images/Real.png',
                 vnome: 'REAL MADRID',
+                stadium: 'Stamford Bridge',
                 data: ' QUA, 06/04',
                 hora: '16:00')
           ],
@@ -67,6 +70,7 @@ GestureDetector builderTicket(
     required String mnome,
     required String visitante,
     required String vnome,
+      required String stadium,
     required String data,
     required String hora}) {
   return GestureDetector(
@@ -74,12 +78,13 @@ GestureDetector builderTicket(
       // print("clicou");
       // Navigator.push(
       //     context,  MaterialPageRoute(builder: (context) => MatchDetails()));
-      Navigator.pushReplacementNamed(context, '/matche_detail_page',
+      Navigator.pushReplacementNamed(context, '/ticketGames',
           arguments: {
             "mandante": mandante,
             "visitante": visitante,
             "mnome": mnome,
             "vnome": vnome,
+            "stadium": stadium,
             "data": data,
             "hora": hora
           });

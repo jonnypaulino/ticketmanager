@@ -2,39 +2,12 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 
-class CityVsAtlet extends StatefulWidget {
+class TicketGames extends StatefulWidget {
   @override
-  State<CityVsAtlet> createState() => _HomePageState();
+  State<TicketGames> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<CityVsAtlet> {
-
-  var _jogo = [];
-
-  var _qualJogo = 1;
-
-  List decideJogo(int _qualJogo){
-
-    if(_qualJogo == 1){
-      _jogo = ['05/04 - Etihad Stadium', 'assets/images/manchestercity-logo.png',
-        'assets/images/Atletico-Madrid-Logo.png'];
-    }
-    if(_qualJogo == 2){
-      _jogo = ['05/04 - Estádio da Luz', 'assets/images/logo-benfica.png',
-        'assets/images/liverpool-logo.png'];
-    }
-    if(_qualJogo == 3){
-      _jogo = ['06/04 - El Madrigal', 'assets/images/villarreal-logo.png',
-        'assets/images/bayern-munich-logo.png'];
-    }
-    if(_qualJogo == 4){
-      _jogo = ['06/04 - Stamford Bridge', 'assets/images/che.png',
-        'assets/images/Rm.png'];
-    }
-
-    return _jogo;
-
-  }
+class _HomePageState extends State<TicketGames> {
 
   var _valorString = 'RS 0';
 
@@ -55,6 +28,17 @@ class _HomePageState extends State<CityVsAtlet> {
 
   @override
   Widget build(BuildContext context) {
+
+    final routeArgs = ModalRoute.of(context)!.settings.arguments as Map;
+
+    String mandante = routeArgs["mandante"];
+    String visitante = routeArgs["visitante"];
+    String nnome = routeArgs["mnome"];
+    String vnome = routeArgs["vnome"];
+    String stadium = routeArgs["stadium"];
+    String data = routeArgs["data"];
+    String hora = routeArgs["hora"];
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body:
@@ -106,7 +90,7 @@ class _HomePageState extends State<CityVsAtlet> {
                 child: Row(
                   children: [
                     Text(
-                      decideJogo(_qualJogo)[0],
+                      stadium,
                       style: TextStyle(
                           fontSize: 13.0,
                           color: Colors.white,
@@ -131,7 +115,7 @@ class _HomePageState extends State<CityVsAtlet> {
                         children: [
                           Container(
                             child: Image.asset(
-                              decideJogo(_qualJogo)[1],
+                              mandante,
                               height: 55.0,
                             ),
                           ),
@@ -150,7 +134,7 @@ class _HomePageState extends State<CityVsAtlet> {
                           SizedBox(width: 50),
                           Container(
                             child: Image.asset(
-                              decideJogo(_qualJogo)[2],
+                              visitante,
                               height: 55.0,
                             ),
                           )
