@@ -14,11 +14,11 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         //home: Scaffold(body: SafeArea(child: TicketsPage())),
         title: 'Champions',
-        initialRoute: '/CitVsAtl',
+        initialRoute: '/ticketScreen',
         routes: <String, WidgetBuilder>{
           '/': (context) => Home(),
           '/games': (context) => TicketsPage(),
-          '/CitVsAtl': (context) => CityVsAtlet(),
+          '/ticketScreen': (context) => CityVsAtlet(),
         });
   }
 }

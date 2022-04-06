@@ -8,6 +8,51 @@ class CityVsAtlet extends StatefulWidget {
 }
 
 class _HomePageState extends State<CityVsAtlet> {
+
+  var _jogo = [];
+
+  var _qualJogo = 1;
+
+  List decideJogo(int _qualJogo){
+
+    if(_qualJogo == 1){
+      _jogo = ['05/04 - Etihad Stadium', 'assets/images/manchestercity-logo.png',
+        'assets/images/Atletico-Madrid-Logo.png'];
+    }
+    if(_qualJogo == 2){
+      _jogo = ['05/04 - Estádio da Luz', 'assets/images/logo-benfica.png',
+        'assets/images/liverpool-logo.png'];
+    }
+    if(_qualJogo == 3){
+      _jogo = ['06/04 - El Madrigal', 'assets/images/villarreal-logo.png',
+        'assets/images/bayern-munich-logo.png'];
+    }
+    if(_qualJogo == 4){
+      _jogo = ['06/04 - Stamford Bridge', 'assets/images/che.png',
+        'assets/images/Rm.png'];
+    }
+
+    return _jogo;
+
+  }
+
+  var _valorString = 'RS 0';
+
+  void pegaQuantidade(String quantidade){
+    var quantFinal = int.parse(quantidade);
+    print(_valorString);
+    setState(() {
+      _valorString = 'RS ' + valorIngresso(quantFinal).toString();
+    });
+  }
+
+  int valorIngresso(int quantFinal){
+    var valorPadrao = 120;
+    var valorFinal;
+    valorFinal = valorPadrao*quantFinal;
+    return valorFinal;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +106,7 @@ class _HomePageState extends State<CityVsAtlet> {
                 child: Row(
                   children: [
                     Text(
-                      '06/04 - Allianz Arena',
+                      decideJogo(_qualJogo)[0],
                       style: TextStyle(
                           fontSize: 13.0,
                           color: Colors.white,
@@ -76,37 +121,42 @@ class _HomePageState extends State<CityVsAtlet> {
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 90.0, bottom: 380.0),
+                padding: const EdgeInsets.only(left: 92.0, bottom: 380.0),
                 child: Row(
                   children: [
                     Container(
-                      child: Image.asset(
-                        'assets/images/bayern-munich-logo.png',
-                        height: 55.0,
+                      child: Row(
+                        children: [
+                          Container(
+                            child: Image.asset(
+                              decideJogo(_qualJogo)[1],
+                              height: 55.0,
+                            ),
+                          ),
+                          SizedBox(width: 50),
+                          Container(
+                            child: Text(
+                              'X',
+                              style: TextStyle(
+                                  fontSize: 20.0,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.none
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 50),
+                          Container(
+                            child: Image.asset(
+                              decideJogo(_qualJogo)[2],
+                              height: 55.0,
+                            ),
+                          )
+                        ],
                       ),
                     ),
-                    SizedBox(width: 50),
-                    Container(
-                      child: Text(
-                        'X',
-                        style: TextStyle(
-                            fontSize: 20.0,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.none
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 50),
-                    Container(
-                      child: Image.asset(
-                        'assets/images/villarreal-logo.png',
-                        height: 55.0,
-                      ),
-                    )
                   ],
                 ),
               )
@@ -138,10 +188,15 @@ class _HomePageState extends State<CityVsAtlet> {
                         color: Color.fromRGBO(137, 139, 136, 0.85),
                         ),
                         child:
-                        TextField(
+                        TextFormField(
                           keyboardType: TextInputType.number,
                           maxLength: 3,
-                          decoration: InputDecoration(counterText: ''),
+                          decoration: InputDecoration(
+                              counterText: '',
+                            contentPadding: EdgeInsets.only(left: 45, bottom: 16.9)
+                          ),
+                          initialValue: 0.toString(),
+                          onChanged: pegaQuantidade,
                         ),
                         )
                   ],
@@ -177,7 +232,7 @@ class _HomePageState extends State<CityVsAtlet> {
                       ),
                       child:
                       Text(
-                          'X Reais'
+                          _valorString
                       ),
                     )
                   ],
