@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         routes: <String, WidgetBuilder>{
           '/': (context) => Home(),
           '/games': (context) => TicketsPage(),
-          '/CitVsAtl': (context) => CityVsAtlet(),
+          '/ticketScreen': (context) => CityVsAtlet(),
         });
   }
 }
