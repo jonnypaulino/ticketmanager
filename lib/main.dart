@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         //home: Scaffold(body: SafeArea(child: TicketsPage())),
         title: 'Champions',
-        initialRoute: '/CitVsAtl',
+        initialRoute: '/',
         routes: <String, WidgetBuilder>{
           '/': (context) => Home(),
           '/games': (context) => TicketsPage(),
