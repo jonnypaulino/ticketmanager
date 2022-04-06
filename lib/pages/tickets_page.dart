@@ -21,6 +21,7 @@ class _TicketsPageState extends State<TicketsPage> {
         padding: EdgeInsets.all(8.0),
         child: Column(
           children: <Widget>[
+            SizedBox(height: 10),
             builderTicket(
                 context: context,
                 mandante: 'assets/images/manchestercity-logo.png',
@@ -70,7 +71,7 @@ GestureDetector builderTicket(
     required String mnome,
     required String visitante,
     required String vnome,
-      required String stadium,
+    required String stadium,
     required String data,
     required String hora}) {
   return GestureDetector(
@@ -78,16 +79,15 @@ GestureDetector builderTicket(
       // print("clicou");
       // Navigator.push(
       //     context,  MaterialPageRoute(builder: (context) => MatchDetails()));
-      Navigator.pushReplacementNamed(context, '/ticketGames',
-          arguments: {
-            "mandante": mandante,
-            "visitante": visitante,
-            "mnome": mnome,
-            "vnome": vnome,
-            "stadium": stadium,
-            "data": data,
-            "hora": hora
-          });
+      Navigator.pushReplacementNamed(context, '/ticketGames', arguments: {
+        "mandante": mandante,
+        "visitante": visitante,
+        "mnome": mnome,
+        "vnome": vnome,
+        "stadium": stadium,
+        "data": data,
+        "hora": hora
+      });
     },
     child: SafeArea(
       child: Card(

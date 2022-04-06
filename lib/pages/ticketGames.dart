@@ -8,10 +8,9 @@ class TicketGames extends StatefulWidget {
 }
 
 class _HomePageState extends State<TicketGames> {
-
   var _valorString = 'RS 0';
 
-  void pegaQuantidade(String quantidade){
+  void pegaQuantidade(String quantidade) {
     var quantFinal = int.parse(quantidade);
     print(_valorString);
     setState(() {
@@ -19,16 +18,15 @@ class _HomePageState extends State<TicketGames> {
     });
   }
 
-  int valorIngresso(int quantFinal){
+  int valorIngresso(int quantFinal) {
     var valorPadrao = 120;
     var valorFinal;
-    valorFinal = valorPadrao*quantFinal;
+    valorFinal = valorPadrao * quantFinal;
     return valorFinal;
   }
 
   @override
   Widget build(BuildContext context) {
-
     final routeArgs = ModalRoute.of(context)!.settings.arguments as Map;
 
     String mandante = routeArgs["mandante"];
@@ -41,8 +39,7 @@ class _HomePageState extends State<TicketGames> {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body:
-      Stack(
+      body: Stack(
         children: [
           Container(
             decoration: BoxDecoration(
@@ -50,12 +47,13 @@ class _HomePageState extends State<TicketGames> {
                     image: AssetImage('assets/images/champions-back.png'),
                     fit: BoxFit.cover)),
             child: new Container(
-              margin: const EdgeInsets.only(top: 150.0, bottom: 25.0, left: 12.0, right: 12.0),
+              margin: const EdgeInsets.only(
+                  top: 150.0, bottom: 25.0, left: 12.0, right: 12.0),
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('assets/images/fundoIngresso.png'),
-                      colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.8),
-                          BlendMode.dstATop),
+                      colorFilter: ColorFilter.mode(
+                          Colors.black.withOpacity(0.8), BlendMode.dstATop),
                       scale: 0.3)),
             ),
           ),
@@ -63,6 +61,19 @@ class _HomePageState extends State<TicketGames> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Row(
+                children: [
+                  Padding(padding: EdgeInsets.all(10.0)),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                      size: 26,
+                    ),
+                    onPressed: () => Navigator.pushNamed(context, '/games'),
+                  ),
+                ],
+              ),
               Padding(
                 padding: const EdgeInsets.only(left: 95.0, bottom: 620.0),
                 child: Row(
@@ -73,8 +84,7 @@ class _HomePageState extends State<TicketGames> {
                           fontSize: 20.0,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.none
-                      ),
+                          decoration: TextDecoration.none),
                     )
                   ],
                 ),
@@ -95,8 +105,7 @@ class _HomePageState extends State<TicketGames> {
                           fontSize: 13.0,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.none
-                      ),
+                          decoration: TextDecoration.none),
                     )
                   ],
                 ),
@@ -127,8 +136,7 @@ class _HomePageState extends State<TicketGames> {
                                   fontSize: 20.0,
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
-                                  decoration: TextDecoration.none
-                              ),
+                                  decoration: TextDecoration.none),
                             ),
                           ),
                           SizedBox(width: 50),
@@ -151,7 +159,7 @@ class _HomePageState extends State<TicketGames> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 75.0, top: 400.0),
+                padding: const EdgeInsets.only(left: 75.0),
                 child: Row(
                   children: [
                     Text(
@@ -160,29 +168,27 @@ class _HomePageState extends State<TicketGames> {
                           fontSize: 16.0,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.none
-                      ),
+                          decoration: TextDecoration.none),
                     ),
                     SizedBox(width: 65),
                     Container(
-                        width: 100,
-                        height: 30,
-                        decoration: BoxDecoration(
+                      width: 100,
+                      height: 30,
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Color.fromRGBO(137, 139, 136, 0.85),
-                        ),
-                        child:
-                        TextFormField(
-                          keyboardType: TextInputType.number,
-                          maxLength: 3,
-                          decoration: InputDecoration(
-                              counterText: '',
-                            contentPadding: EdgeInsets.only(left: 45, bottom: 16.9)
-                          ),
-                          initialValue: 0.toString(),
-                          onChanged: pegaQuantidade,
-                        ),
-                        )
+                      ),
+                      child: TextFormField(
+                        keyboardType: TextInputType.number,
+                        maxLength: 3,
+                        decoration: InputDecoration(
+                            counterText: '',
+                            contentPadding:
+                                EdgeInsets.only(left: 45, bottom: 16.9)),
+                        initialValue: 0.toString(),
+                        onChanged: pegaQuantidade,
+                      ),
+                    )
                   ],
                 ),
               )
@@ -193,7 +199,7 @@ class _HomePageState extends State<TicketGames> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 75.0, top: 500.0),
+                padding: const EdgeInsets.only(left: 75.0, top: 80.0),
                 child: Row(
                   children: [
                     Text(
@@ -202,10 +208,9 @@ class _HomePageState extends State<TicketGames> {
                           fontSize: 16.0,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.none
-                      ),
+                          decoration: TextDecoration.none),
                     ),
-                    SizedBox(width: 71),
+                    SizedBox(width: 74),
                     Container(
                       alignment: Alignment.center,
                       width: 100,
@@ -214,10 +219,7 @@ class _HomePageState extends State<TicketGames> {
                         borderRadius: BorderRadius.circular(10),
                         color: Color.fromRGBO(137, 139, 136, 0.85),
                       ),
-                      child:
-                      Text(
-                          _valorString
-                      ),
+                      child: Text(_valorString),
                     )
                   ],
                 ),
@@ -228,18 +230,18 @@ class _HomePageState extends State<TicketGames> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
-                padding: const EdgeInsets.all(50.0),
+                padding: const EdgeInsets.all(100.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(Color.fromRGBO(14, 30, 91, 1)),
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                              )
-                          )
+                      style: ElevatedButton.styleFrom(
+                        primary: Color.fromARGB(255, 3, 53, 95),
+                        onPrimary: Colors.white,
+                        padding: EdgeInsets.all(18.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(32.0),
+                        ),
                       ),
                       child: Text(
                         'Comprar',
@@ -247,10 +249,9 @@ class _HomePageState extends State<TicketGames> {
                             fontSize: 22.0,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.none
-                        ),
+                            decoration: TextDecoration.none),
                       ),
-                      onPressed: (){
+                      onPressed: () {
                         print('comprou');
                       },
                     ),
